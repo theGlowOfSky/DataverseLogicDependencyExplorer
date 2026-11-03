@@ -1,0 +1,62 @@
+<!--
+  Dataverse Logic Dependency Explorer  v1.2026.11.11
+  Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
+  Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
+-->
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <OutputType>Library</OutputType>
+    <AssemblyName>DataverseLogicDependencyExplorer</AssemblyName>
+    <RootNamespace>DataverseLogicDependencyExplorer</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Deterministic>true</Deterministic>
+    <DebugType>portable</DebugType>
+
+    <!-- Product / version / authorship metadata (also emitted into the assembly) -->
+    <Version>1.2026.11.11</Version>
+    <AssemblyVersion>1.2026.11.11</AssemblyVersion>
+    <FileVersion>1.2026.11.11</FileVersion>
+    <InformationalVersion>1.2026.11.11</InformationalVersion>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+    <Product>Dataverse Logic Dependency Explorer</Product>
+    <AssemblyTitle>Dataverse Logic Dependency Explorer</AssemblyTitle>
+    <Authors>Gagan Deep Singh</Authors>
+    <Company>Gagan Deep Singh</Company>
+    <Copyright>Copyright © 2026 Gagan Deep Singh</Copyright>
+    <PackageProjectUrl>https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Finds where a Dataverse table or column is referenced across business rules, JavaScript, forms, plugin registrations, workflows and cloud flows, and exports an impact report to Excel. Maintainer: Gagan Deep Singh (https://www.linkedin.com/in/glowofsky/). Host: XrmToolBox. Data platform: Microsoft Dataverse. Export format: Excel workbook (.xlsx).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>Maintainer</_Parameter1><_Parameter2>Gagan Deep Singh</_Parameter2></AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>LinkedIn</_Parameter1><_Parameter2>https://www.linkedin.com/in/glowofsky/</_Parameter2></AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>Repository</_Parameter1><_Parameter2>https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer</_Parameter2></AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>Host</_Parameter1><_Parameter2>XrmToolBox</_Parameter2></AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>DataPlatform</_Parameter1><_Parameter2>Microsoft Dataverse</_Parameter2></AssemblyAttribute>
+    <AssemblyAttribute Include="System.Reflection.AssemblyMetadataAttribute"><_Parameter1>ExportFormat</_Parameter1><_Parameter2>Excel workbook (.xlsx)</_Parameter2></AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--
+      Host-provided assemblies: compile against them, never deploy them. ExcludeAssets="runtime" + PrivateAssets="all" keeps
+      XrmToolBox.Extensibility, McTools.Xrm.Connection, the Dataverse SDK and Newtonsoft.Json out of the build output, so the
+      plugin cannot load a second copy of IXrmToolBoxPlugin (the cause of CompositionContractMismatchException).
+      Versions are the ones used by the working reference plugins.
+    -->
+    <PackageReference Include="XrmToolBoxPackage" Version="1.2025.10.74" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="MscrmTools.Xrm.Connection" Version="1.2025.9.64" PrivateAssets="all" ExcludeAssets="runtime" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" PrivateAssets="all" ExcludeAssets="runtime" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+
+</Project>

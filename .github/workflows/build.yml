@@ -1,0 +1,24 @@
+# ----------------------------------------------------------------------------
+# Dataverse Logic Dependency Explorer  v1.2026.11.11
+# Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
+# Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
+# ----------------------------------------------------------------------------
+name: build
+on:
+  push: { branches: [ main ] }
+  pull_request:
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with: { dotnet-version: '8.0.x' }
+      - run: dotnet restore DataverseLogicDependencyExplorer.sln
+      - run: dotnet build DataverseLogicDependencyExplorer.sln -c Release --no-restore
+      - run: dotnet test DataverseLogicDependencyExplorer.sln -c Release --no-build
+      - name: Package (verifies no host assemblies are deployed)
+        shell: pwsh
+        run: ./build/Package-Plugin.ps1
+      - uses: actions/upload-artifact@v4
+        with: { name: plugin-package, path: artifacts/** }

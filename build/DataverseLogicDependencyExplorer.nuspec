@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Dataverse Logic Dependency Explorer  v1.2026.11.11
+  Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
+  Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
+-->
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DataverseLogicDependencyExplorer</id>
+    <version>1.2026.11.11</version>
+    <title>Dataverse Logic Dependency Explorer</title>
+    <authors>Gagan Deep Singh</authors>
+    <owners>Gagan Deep Singh</owners>
+    <projectUrl>https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer</projectUrl>
+    <repository type="git" url="https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer" />
+    <copyright>Copyright © 2026 Gagan Deep Singh</copyright>
+    <icon>icon.png</icon>
+    <readme>README.md</readme>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An XrmToolBox tool that finds where a Dataverse table or column is referenced by business rules, JavaScript web resources, forms and form event registrations, plugin registrations, classic workflows and cloud flows, and exports an evidence-based impact report to Excel. Read-only analysis; every finding is labelled with how strong its evidence is. Maintainer: Gagan Deep Singh (https://www.linkedin.com/in/glowofsky/). Host: XrmToolBox. Data platform: Microsoft Dataverse. Export format: Excel workbook (.xlsx).</description>
+    <summary>Find where a Dataverse table or column is used and export an impact report.</summary>
+    <releaseNotes>1.2026.11.11: Dependency Finder and Impact Report tabs; business rule, JavaScript, form, plugin registration, classic workflow and cloud flow scanners; parallel JavaScript download with live progress and live findings; Excel report with Summary, Dependencies, Scan Diagnostics and Scan Configuration sheets.</releaseNotes>
+    <tags>XrmToolBox Dataverse Dynamics365 PowerPlatform Dependencies ImpactAnalysis Excel</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="XrmToolBox" version="1.2025.10.74" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- Exactly one assembly. No host assemblies (XrmToolBox.*, McTools.*, Microsoft.Xrm.*, Newtonsoft.Json) are packaged. -->
+    <file src="Plugins\DataverseLogicDependencyExplorer.dll" target="lib\net48\Plugins" />
+    <file src="icon.png" target="icon.png" />
+    <file src="README.md" target="README.md" />
+  </files>
+</package>
