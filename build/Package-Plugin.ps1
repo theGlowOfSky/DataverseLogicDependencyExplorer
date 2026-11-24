@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Dataverse Logic Dependency Explorer  v1.2026.11.11
+# Dataverse Logic Dependency Explorer  v1.2026.12.1
 # Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
 # Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 # ----------------------------------------------------------------------------
@@ -19,8 +19,13 @@ $name = 'DataverseLogicDependencyExplorer'
 Set-Location $root
 
 dotnet restore "$name.sln"
-dotnet build   "$name.sln" -c Release --no-restore
-dotnet test    "tests\$name.Tests\$name.Tests.csproj" -c Release --no-build
+if ($LASTEXITCODE -ne 0) { throw "NuGet restore failed." }
+
+dotnet build "$name.sln" -c Release --no-restore
+if ($LASTEXITCODE -ne 0) { throw "Release build failed." }
+
+dotnet test "tests\$name.Tests\$name.Tests.csproj" -c Release --no-build
+if ($LASTEXITCODE -ne 0) { throw "Automated tests failed. Packaging cancelled." }
 
 $out = Join-Path $root "src\$name\bin\Release"
 $dll = Join-Path $out "$name.dll"

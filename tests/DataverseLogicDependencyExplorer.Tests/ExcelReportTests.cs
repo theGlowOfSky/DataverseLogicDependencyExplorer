@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-// Dataverse Logic Dependency Explorer  v1.2026.11.11
+// Dataverse Logic Dependency Explorer  v1.2026.12.1
 // Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
 // Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 // ----------------------------------------------------------------------------
@@ -84,7 +84,7 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void Workbook_HasFourSheetsInRequiredOrder()
         {
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.12.1");
             Book b = Open(p);
             Assert.AreEqual("Summary,Dependencies,Scan Diagnostics,Scan Configuration", string.Join(",", b.SheetNames));
         }
@@ -93,7 +93,7 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void DependenciesSheet_HasHeaderRowFrozenFilteredAndWrapsEvidence()
         {
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.12.1");
             Book b = Open(p);
             XDocument sheet = b.Sheet(1);
             Assert.AreEqual("frozen", (string)sheet.Descendants(M + "pane").Single().Attribute("state"));
@@ -113,7 +113,7 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void SpecialText_IsStoredAsTextNotFormula_AndInvalidXmlCharsAreRemoved()
         {
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(true, false), p, "1.2026.12.1");
             Book b = Open(p);
             string[][] rows = b.Rows(1);
             Assert.AreEqual("=HYPERLINK(\"http://x\")", rows[1][1]);
@@ -128,7 +128,7 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void SummarySheet_ContainsRequiredFacts()
         {
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(Analysis(true, true), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(true, true), p, "1.2026.12.1");
             string all = string.Join("\n", Open(p).Rows(0).Select(r => string.Join(" | ", r.Select(x => x ?? ""))));
             foreach (string needle in new[] { "https://contoso.crm.dynamics.com", "Search mode", "Selected table", "Selected column", "new_status", "Total matches", "Unique components",
                 "Matches by component type", "Matches by confidence classification", "Confirmed metadata reference", "Strong definition reference", "Text match - review required",
@@ -144,7 +144,7 @@ namespace DataverseLogicDependencyExplorer.Tests
             var skipped = a.Diagnostics.First(d => d.Category == ScannerKind.Forms);
             skipped.Status = ScanStatus.NotInspected; skipped.RecordsExamined = 0; skipped.Warn("Not inspected: not selected");
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(a, p, "1.2026.11.11");
+            ExcelReportExporter.Export(a, p, "1.2026.12.1");
             string[][] rows = Open(p).Rows(2);
             string[] header = rows[0];
             Assert.AreEqual("Scan Status", header[1]);
@@ -162,9 +162,9 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void ConfigurationSheet_RecordsTargetScopeAndVersions()
         {
             string p = Path.Combine(dir, "a.xlsx");
-            ExcelReportExporter.Export(Analysis(false, false), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(false, false), p, "1.2026.12.1");
             string all = string.Join("\n", Open(p).Rows(3).Select(r => string.Join("=", r)));
-            foreach (string needle in new[] { "Report version=1.2026.11.11", "Plugin version=1.2026.11.11", "Target table (logical name)=account", "Target column (logical name)=new_status", "Business Rules", "Scan timestamp (UTC)", "Maintainer=Gagan Deep Singh", "LinkedIn=https://www.linkedin.com/in/glowofsky/", "Project URL=https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer", "Host=XrmToolBox", "Data platform=Microsoft Dataverse", "Export format=Excel workbook (.xlsx)" })
+            foreach (string needle in new[] { "Report version=1.2026.12.1", "Plugin version=1.2026.12.1", "Target table (logical name)=account", "Target column (logical name)=new_status", "Business Rules", "Scan timestamp (UTC)", "Maintainer=Gagan Deep Singh", "LinkedIn=https://www.linkedin.com/in/glowofsky/", "Project URL=https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer", "Host=XrmToolBox", "Data platform=Microsoft Dataverse", "Export format=Excel workbook (.xlsx)" })
                 StringAssert.Contains(all, needle);
         }
 
@@ -172,14 +172,14 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void Export_WithNoResults_StillProducesAllSheets_AndSaysWhetherItIsClean()
         {
             string p = Path.Combine(dir, "empty.xlsx");
-            ExcelReportExporter.Export(Analysis(false, false), p, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(false, false), p, "1.2026.12.1");
             Book b = Open(p);
             Assert.AreEqual(4, b.SheetNames.Count);
             Assert.AreEqual(1, b.Rows(1).Length, "header only");
             StringAssert.Contains(string.Join("\n", b.Rows(0).Select(r => string.Join(" ", r.Select(x => x ?? "")))), "No references were found. Every selected category was inspected.");
 
             string p2 = Path.Combine(dir, "empty2.xlsx");
-            ExcelReportExporter.Export(Analysis(false, true), p2, "1.2026.11.11");
+            ExcelReportExporter.Export(Analysis(false, true), p2, "1.2026.12.1");
             StringAssert.Contains(string.Join("\n", Open(p2).Rows(0).Select(r => string.Join(" ", r.Select(x => x ?? "")))), "This is not a clean result");
         }
 
@@ -189,7 +189,7 @@ namespace DataverseLogicDependencyExplorer.Tests
             AnalysisResult a = Analysis(true, true);
             a.WasCancelled = true;
             string p = Path.Combine(dir, "partial.xlsx");
-            ExcelReportExporter.Export(a, p, "1.2026.11.11");
+            ExcelReportExporter.Export(a, p, "1.2026.12.1");
             Book b = Open(p);
             Assert.AreEqual(3, b.Rows(1).Length);
             StringAssert.Contains(string.Join(" ", b.Rows(0).SelectMany(r => r.Select(x => x ?? ""))), "CANCELLED");
@@ -201,7 +201,7 @@ namespace DataverseLogicDependencyExplorer.Tests
             AnalysisResult a = Analysis(true, false);
             a.Results[0].Evidence = new string('x', 40000);
             string p = Path.Combine(dir, "long.xlsx");
-            ExportOutcome o = ExcelReportExporter.Export(a, p, "1.2026.11.11");
+            ExportOutcome o = ExcelReportExporter.Export(a, p, "1.2026.12.1");
             Assert.AreEqual(1, o.TruncatedCells);
             string ev = Open(p).Rows(1)[1][12];
             Assert.AreEqual(32767, ev.Length);
@@ -212,12 +212,12 @@ namespace DataverseLogicDependencyExplorer.Tests
         public void FileErrors_ThrowCatchableExceptions_AndNeverCorruptState()
         {
             AnalysisResult a = Analysis(true, false);
-            Assert.ThrowsException<ArgumentException>(() => ExcelReportExporter.Export(a, " ", "1.2026.11.11"));
+            Assert.ThrowsException<ArgumentException>(() => ExcelReportExporter.Export(a, " ", "1.2026.12.1"));
             string missing = Path.Combine(dir, "no_such_folder", "x.xlsx");
-            Assert.ThrowsException<DirectoryNotFoundException>(() => ExcelReportExporter.Export(a, missing, "1.2026.11.11"));
+            Assert.ThrowsException<DirectoryNotFoundException>(() => ExcelReportExporter.Export(a, missing, "1.2026.12.1"));
             string locked = Path.Combine(dir, "locked.xlsx");
             using (new FileStream(locked, FileMode.Create, FileAccess.ReadWrite, FileShare.None))
-                Assert.ThrowsException<IOException>(() => ExcelReportExporter.Export(a, locked, "1.2026.11.11"));
+                Assert.ThrowsException<IOException>(() => ExcelReportExporter.Export(a, locked, "1.2026.12.1"));
         }
 
         [TestMethod]

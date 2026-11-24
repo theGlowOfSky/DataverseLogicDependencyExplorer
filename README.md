@@ -5,7 +5,7 @@
 **Host:** XrmToolBox  
 **Data platform:** Microsoft Dataverse  
 **Export format:** Excel workbook (`.xlsx`)  
-**Version:** 1.2026.11.11  
+**Version:** 1.2026.12.1
 **Project:** [GitHub repository](https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer)
 
 Before you rename a column, change a table, or touch a form, business rule, plugin step or flow, you need to know **what else uses it**.
@@ -122,4 +122,4 @@ The tool uses your XrmToolBox connection and can only see what **your user** can
 | Excel export fails | Close the file if it is open in Excel, or save to another folder. |
 
 ---
-**Dataverse Logic Dependency Explorer** v1.2026.11.11 - maintained by Gagan Deep Singh ([LinkedIn](https://www.linkedin.com/in/glowofsky/)) - [GitHub](https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer) - for XrmToolBox and Microsoft Dataverse.
+**Dataverse Logic Dependency Explorer** v1.2026.12.1 - maintained by Gagan Deep Singh ([LinkedIn](https://www.linkedin.com/in/glowofsky/)) - [GitHub](https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer) - for XrmToolBox and Microsoft Dataverse.

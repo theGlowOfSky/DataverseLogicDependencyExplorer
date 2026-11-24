@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-// Dataverse Logic Dependency Explorer  v1.2026.11.11
+// Dataverse Logic Dependency Explorer  v1.2026.12.1
 // Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
 // Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 // ----------------------------------------------------------------------------
@@ -142,7 +142,7 @@ static class Smoke
         cmbJs.SelectedIndex = 0; Application.DoEvents();
         Check(chkSkip.Enabled, "full search enables the skip option again");
         var about = (LinkLabel)Get(control, "lnkAbout");
-        Check(about.Text.Contains("Gagan Deep Singh") && about.Text.Contains("1.2026.11.11") && about.Links.Count == 1 && (string)about.Links[0].LinkData == "https://www.linkedin.com/in/glowofsky/", "maintainer link and version are shown");
+        Check(about.Text.Contains("Gagan Deep Singh") && about.Text.Contains("1.2026.12.1") && about.Links.Count == 1 && (string)about.Links[0].LinkData == "https://www.linkedin.com/in/glowofsky/", "maintainer link and version are shown");
 
         // report: empty states (the user is on the Impact Report tab for these checks)
         tabs.SelectedTab = tabs.TabPages[1]; Application.DoEvents();

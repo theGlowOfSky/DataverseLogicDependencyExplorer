@@ -5,7 +5,7 @@
 **Host:** XrmToolBox  
 **Data platform:** Microsoft Dataverse  
 **Export format:** Excel workbook (`.xlsx`)  
-**Version:** 1.2026.11.11
+**Version:** 1.2026.12.1
 
 Compiling and unit tests do **not** prove that XrmToolBox loads the plugin or that every Dataverse query behaves as assumed. Complete this list on Windows
 with XrmToolBox and a test environment before release, and record the result.

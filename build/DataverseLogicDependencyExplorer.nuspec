@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Dataverse Logic Dependency Explorer  v1.2026.11.11
+  Dataverse Logic Dependency Explorer  v1.2026.12.1
   Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
   Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 -->
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>DataverseLogicDependencyExplorer</id>
-    <version>1.2026.11.11</version>
+    <version>1.2026.12.1</version>
     <title>Dataverse Logic Dependency Explorer</title>
     <authors>Gagan Deep Singh</authors>
     <owners>Gagan Deep Singh</owners>
     <projectUrl>https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/theGlowOfSky/DataverseLogicDependencyExplorer/main/assets/icon-256.png</iconUrl>
     <repository type="git" url="https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer" />
     <copyright>Copyright © 2026 Gagan Deep Singh</copyright>
     <icon>icon.png</icon>
@@ -19,7 +20,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An XrmToolBox tool that finds where a Dataverse table or column is referenced by business rules, JavaScript web resources, forms and form event registrations, plugin registrations, classic workflows and cloud flows, and exports an evidence-based impact report to Excel. Read-only analysis; every finding is labelled with how strong its evidence is. Maintainer: Gagan Deep Singh (https://www.linkedin.com/in/glowofsky/). Host: XrmToolBox. Data platform: Microsoft Dataverse. Export format: Excel workbook (.xlsx).</description>
     <summary>Find where a Dataverse table or column is used and export an impact report.</summary>
-    <releaseNotes>1.2026.11.11: Dependency Finder and Impact Report tabs; business rule, JavaScript, form, plugin registration, classic workflow and cloud flow scanners; parallel JavaScript download with live progress and live findings; Excel report with Summary, Dependencies, Scan Diagnostics and Scan Configuration sheets.</releaseNotes>
+    <releaseNotes>1.2026.12.1: Added the public NuGet iconUrl metadata for the package icon. No functional changes.</releaseNotes>
     <tags>XrmToolBox Dataverse Dynamics365 PowerPlatform Dependencies ImpactAnalysis Excel</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.8">

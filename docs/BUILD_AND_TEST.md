@@ -5,7 +5,7 @@
 **Host:** XrmToolBox  
 **Data platform:** Microsoft Dataverse  
 **Export format:** Excel workbook (`.xlsx`)  
-**Version:** 1.2026.11.11
+**Version:** 1.2026.12.1
 
 ## Windows (supported path)
 ```powershell

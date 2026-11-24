@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-// Dataverse Logic Dependency Explorer  v1.2026.11.11
+// Dataverse Logic Dependency Explorer  v1.2026.12.1
 // Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
 // Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 // ----------------------------------------------------------------------------
@@ -9,7 +9,7 @@ namespace DataverseLogicDependencyExplorer.Models
     public static class ProductInfo
     {
         public const string Name = "Dataverse Logic Dependency Explorer";
-        public const string Version = "1.2026.11.11";
+        public const string Version = "1.2026.12.1";
         public const string Maintainer = "Gagan Deep Singh";
         public const string LinkedInUrl = "https://www.linkedin.com/in/glowofsky/";
         public const string RepositoryUrl = "https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer";

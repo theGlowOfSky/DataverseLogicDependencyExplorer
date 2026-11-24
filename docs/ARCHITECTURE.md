@@ -5,7 +5,7 @@
 **Host:** XrmToolBox  
 **Data platform:** Microsoft Dataverse  
 **Export format:** Excel workbook (`.xlsx`)  
-**Version:** 1.2026.11.11
+**Version:** 1.2026.12.1
 
 ```
 MainControl (UI, 3 partial files)  -->  DependencyAnalysisService  -->  IDependencyScanner x6  -->  DependencyResult / ScanDiagnostic

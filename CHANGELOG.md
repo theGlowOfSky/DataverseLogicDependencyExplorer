@@ -7,6 +7,11 @@
 **Export format:** Excel workbook (`.xlsx`)  
 **Project:** [GitHub repository](https://github.com/theGlowOfSky/DataverseLogicDependencyExplorer)
 
+## 1.2026.12.1
+NuGet packaging metadata update.
+- Added the public GitHub-hosted icon URL (iconUrl) to the NuGet package metadata.
+- No functional changes to plugin scanning, analysis or Excel reporting.
+
 ## 1.2026.11.11
 Initial release.
 - Dependency Finder tab: searchable table/column selectors, table or column search mode, component scopes, cancellable scan with live progress, per-category status.

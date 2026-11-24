@@ -1,5 +1,5 @@
 // ----------------------------------------------------------------------------
-// Dataverse Logic Dependency Explorer  v1.2026.11.11
+// Dataverse Logic Dependency Explorer  v1.2026.12.1
 // Maintainer: Gagan Deep Singh  |  LinkedIn: https://www.linkedin.com/in/glowofsky/
 // Host: XrmToolBox  |  Data platform: Microsoft Dataverse  |  Export format: Excel workbook (.xlsx)
 // ----------------------------------------------------------------------------
@@ -294,7 +294,7 @@ namespace DataverseLogicDependencyExplorer.Tests
         [TestMethod]
         public void ProductInfo_MatchesTheAssemblyVersion_AndCarriesTheMaintainerDetails()
         {
-            Assert.AreEqual("1.2026.11.11", ProductInfo.Version);
+            Assert.AreEqual("1.2026.12.1", ProductInfo.Version);
             Assert.AreEqual(ProductInfo.Version, typeof(ProductInfo).Assembly.GetName().Version.ToString(), "csproj Version and ProductInfo.Version must agree");
             Assert.AreEqual("Gagan Deep Singh", ProductInfo.Maintainer);
             Assert.AreEqual("https://www.linkedin.com/in/glowofsky/", ProductInfo.LinkedInUrl);
